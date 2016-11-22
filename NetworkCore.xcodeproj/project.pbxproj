@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF14F41A1DE4927400FCECF4 /* NetworkCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FF14F4191DE4927400FCECF4 /* NetworkCore.podspec */; };
 		FF32AE271DDA18A3001608BB /* NetworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF32AE1D1DDA18A3001608BB /* NetworkCore.framework */; };
 		FF32AE2C1DDA18A3001608BB /* NetworkCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */; };
 		FF32AE2E1DDA18A3001608BB /* NetworkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF32AE201DDA18A3001608BB /* NetworkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF14F4191DE4927400FCECF4 /* NetworkCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkCore.podspec; sourceTree = "<group>"; };
 		FF32AE1D1DDA18A3001608BB /* NetworkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF32AE201DDA18A3001608BB /* NetworkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCore.h; sourceTree = "<group>"; };
 		FF32AE211DDA18A3001608BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		FF32AE131DDA18A3001608BB = {
 			isa = PBXGroup;
 			children = (
+				FF14F4191DE4927400FCECF4 /* NetworkCore.podspec */,
 				FF32AE1F1DDA18A3001608BB /* NetworkCore */,
 				FF32AE2A1DDA18A3001608BB /* NetworkCoreTests */,
 				FF32AE1E1DDA18A3001608BB /* Products */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF14F41A1DE4927400FCECF4 /* NetworkCore.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +464,7 @@
 				FF32AE331DDA18A3001608BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF32AE341DDA18A3001608BB /* Build configuration list for PBXNativeTarget "NetworkCoreTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +473,7 @@
 				FF32AE361DDA18A3001608BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
