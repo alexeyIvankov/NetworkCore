@@ -46,9 +46,9 @@ public enum ContentTypeRequest : Int
 
 public protocol Request : class
 {
-    func type() -> TypeRequest;
-    func contentType() -> ContentTypeRequest;
-    func url() -> NSURL;
-    func parametrs() -> Dictionary<String, NSObject>?;
-    func isLog() -> Bool;
+    var type: TypeRequest { get }
+    var contentType: ContentTypeRequest { get }
+    var url: URL { get }
+    var parameters:  Dictionary<String, Any>? { get }
+    var isLog: Bool { get }
 }

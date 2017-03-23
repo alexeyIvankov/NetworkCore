@@ -13,29 +13,29 @@ extension NSURLRequest
     class func create(request:Request) -> NSURLRequest?
     {
         let urlRequest:NSMutableURLRequest = NSMutableURLRequest();
-        urlRequest.url = request.url() as URL;
-        if  request.parametrs() != nil
+        urlRequest.url = request.url as URL;
+        if  request.parameters != nil
         {
-            if (request.contentType() == ContentTypeRequest.STRING)
+            if (request.contentType == ContentTypeRequest.STRING)
             {
-                urlRequest.url = NSURL(string: (request.url().absoluteString?.appending("?").appending((request.parametrs()?.createQueryString())!))!) as URL?
+                urlRequest.url = NSURL(string: (request.url.absoluteString.appending("?").appending((request.parameters?.createQueryString())!))) as URL?
                 urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"content-type")
                 
             }
-            else if (request.contentType() == ContentTypeRequest.JSON)
+            else if (request.contentType == ContentTypeRequest.JSON)
             {
-                let data = try? JSONSerialization.data(withJSONObject: request.parametrs()!, options:JSONSerialization.WritingOptions.init(rawValue: 0));
+                let data = try? JSONSerialization.data(withJSONObject: request.parameters!, options:JSONSerialization.WritingOptions.init(rawValue: 0));
                 urlRequest.httpBody = data
                 urlRequest.setValue("application/json", forHTTPHeaderField:"content-type")
             }
-            else if (request.contentType() == ContentTypeRequest.MULTIPART)
+            else if (request.contentType == ContentTypeRequest.MULTIPART)
             {
-                urlRequest.httpBody = request.parametrs()!["multipartData"] as? NSData as Data?
-                urlRequest.setValue("multipart/form-data; boundary=\(request.parametrs()!["boundary"]!)", forHTTPHeaderField: "Content-Type")
+                urlRequest.httpBody = request.parameters!["multipartData"] as? NSData as Data?
+                urlRequest.setValue("multipart/form-data; boundary=\(request.parameters!["boundary"]!)", forHTTPHeaderField: "Content-Type")
             }
         }
         
-        urlRequest.httpMethod = request.type().description;
+        urlRequest.httpMethod = request.type.description;
         
         return urlRequest;
     }
