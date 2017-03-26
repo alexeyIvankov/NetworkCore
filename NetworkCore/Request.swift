@@ -10,37 +10,27 @@ import Foundation
 
 public enum TypeRequest : Int
 {
-    case POST
-    case GET
-    case PUT
-    case PATCH
-    case DELETE
-    case HEAD
-    case TRACE
-    case CONNECT
-    
+    case post
+    case get
+    case put
+    case patch
+    case delete
+    case head
+    case trace
+    case connect
+
     var description: String
     {
-        switch self
-        {
-        case .POST:		return "POST"
-        case .GET:		return "GET"
-        case .PUT:		return "PUT"
-        case .PATCH:    return "PATCH"
-        case .DELETE:	return "DELETE"
-        case .HEAD:		return "HEAD"
-        case .TRACE:	return "TRACE"
-        case .CONNECT:	return "CONNECT"
-        }
+        return String(describing: self).capitalized
     }
 }
 
 public enum ContentTypeRequest : Int
 {
-    case JSON
-    case STRING
-    case BINARY
-    case MULTIPART
+    case json
+    case string
+    case binary
+    case multipart
 }
 
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias CompletionCommand = (_ data: Array<AnyObject>?, _ error:NSError?)->Void;
+public typealias CompletionCommand = (_ data: Array<Any>?, _ error:Error?)->Void;
 public typealias Command = (request:Request, parser:Parser?);
 
 public protocol IRequestExecutor : class

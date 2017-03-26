@@ -10,5 +10,5 @@ import Foundation
 
 public protocol Parser : class
 {
-    func parse(data:AnyObject) -> Array<AnyObject>?
+    func parse(data: Any) -> Array<Any>?
 }

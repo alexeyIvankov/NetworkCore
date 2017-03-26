@@ -8,35 +8,38 @@
 
 import Foundation
 
-extension NSURLRequest
+extension URLRequest
 {
-    class func create(request:Request) -> NSURLRequest?
+    static func create(request:Request) -> URLRequest
     {
-        let urlRequest:NSMutableURLRequest = NSMutableURLRequest();
-        urlRequest.url = request.url as URL;
-        if  request.parameters != nil
+        var urlRequest: URLRequest = URLRequest(url: request.url)
+
+        if (request.contentType == ContentTypeRequest.string)
         {
-            if (request.contentType == ContentTypeRequest.STRING)
+            var hostUrl = request.url.absoluteString
+            if let queryString = request.parameters?.createQueryString()
             {
-                urlRequest.url = NSURL(string: (request.url.absoluteString.appending("?").appending((request.parameters?.createQueryString())!))) as URL?
-                urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"content-type")
-                
+                hostUrl = hostUrl.appending("?").appending(queryString)
             }
-            else if (request.contentType == ContentTypeRequest.JSON)
+            urlRequest.url = URL(string: hostUrl)
+
+            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        }
+        else if (request.contentType == ContentTypeRequest.json), request.parameters != nil
+        {
+            let data = try? JSONSerialization.data(withJSONObject: request.parameters!, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            urlRequest.httpBody = data
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        else if (request.contentType == ContentTypeRequest.multipart)
+        {
+            if let boundary = request.parameters?["boundary"], let data = request.parameters?["multipartData"] as? Data
             {
-                let data = try? JSONSerialization.data(withJSONObject: request.parameters!, options:JSONSerialization.WritingOptions.init(rawValue: 0));
                 urlRequest.httpBody = data
-                urlRequest.setValue("application/json", forHTTPHeaderField:"content-type")
-            }
-            else if (request.contentType == ContentTypeRequest.MULTIPART)
-            {
-                urlRequest.httpBody = request.parameters!["multipartData"] as? NSData as Data?
-                urlRequest.setValue("multipart/form-data; boundary=\(request.parameters!["boundary"]!)", forHTTPHeaderField: "Content-Type")
+                urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
             }
         }
-        
-        urlRequest.httpMethod = request.type.description;
-        
-        return urlRequest;
+        urlRequest.httpMethod = request.type.description
+        return urlRequest
     }
 }

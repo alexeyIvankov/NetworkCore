@@ -1,82 +1,80 @@
 //
 //  Executor.swift
-//  mapissues_api_lib
+//  multibank_api_lib
 //
 //  Created by Nikita on 13.07.16.
 //  Copyright © 2016 Alexey Ivankov. All rights reserved.
 //
 import Foundation
 
-public class RequestExecutor: IRequestExecutor {
+public class RequestExecutor: IRequestExecutor
+{
     
-    private let session:URLSession;
+    private let session:URLSession
     
-    required public init(session:URLSession) {
-        self.session = session;
+    required public init(session:URLSession)
+    {
+        self.session = session
     }
     
     //MARK: IRequestExecutor
     public func execute(command:Command, completion:@escaping CompletionCommand) -> URLSessionDataTask?
     {
-        let urlRequest:NSURLRequest? = NSURLRequest.create(request: command.request);
-        var dataTask:URLSessionDataTask? = nil;
-        
-        if urlRequest == nil{
-            completion(nil, NSError(domain: "failed convert IRequest to NSURLRequest", code: 0, userInfo: nil));
-            return nil;
-        }
-        
-        dataTask = self.session.dataTask(with: urlRequest! as URLRequest, completionHandler: { (data, response, error) in
-            
-            
-            if error  != nil{
-                completion(nil, error as NSError?);
+        let urlRequest:URLRequest = URLRequest.create(request: command.request)
+        var dataTask:URLSessionDataTask? = nil
+
+        dataTask = self.session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+
+            if error != nil
+            {
+                completion(nil, error)
             }
             else
             {
-                if data == nil{
-                    completion(nil, nil);
+                if data == nil
+                {
+                    completion(nil, nil)
                 }
                 else
                 {
-                    let serializationData:AnyObject? = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as AnyObject?);
-                    
-                    if serializationData == nil
-                    {
-                        completion(nil, NSError(domain: "serialization json failed", code: 0, userInfo: nil))
-                    }
-                    else
+                    if let serializationData: Any = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves)
                     {
                         if command.parser != nil
                         {
-                            completion(command.parser!.parse(data: serializationData!), nil);
+                            completion(command.parser!.parse(data: serializationData), nil)
                         }
                         else
                         {
-                            completion(Array(arrayLiteral: serializationData!), nil);
+                            completion(Array(arrayLiteral: serializationData), nil)
                         }
+                    }
+                    else
+                    {
+                        completion(nil, RequestError.requestError)
                     }
                 }
             }
         })
-        dataTask?.resume();
+
+        dataTask?.resume()
         
-        return dataTask;
+        return dataTask
     }
     
     
     public func execute(command:Command, completion:@escaping CompletionCommand, completionQueue:DispatchQueue) -> URLSessionDataTask?
     {
-        let task:URLSessionDataTask? = self.execute(command: command) { (data, error) in
+        let task: URLSessionDataTask? = self.execute(command: command) { (data, error) in
             
-            completionQueue.async(execute: {
-                completion(data, error);
+            completionQueue.async(execute:
+            {
+                completion(data, error)
             })
         }
         
-        task?.resume();
+        task?.resume()
         
-        return task;
+        return task
     }
 
 }
