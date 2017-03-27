@@ -17,12 +17,24 @@ extension URLRequest
         if (request.contentType == ContentTypeRequest.string)
         {
             var hostUrl = request.url.absoluteString
-            if let queryString = request.parameters?.createQueryString()
+
+            if request.type == .get, let queryString = request.parameters?.createQueryString()
             {
                 hostUrl = hostUrl.appending("?").appending(queryString)
             }
+            else
+            {
+                let post = request.parameters?.createQueryString()
+                
+                if  let postData = post?.data(using: String.Encoding.ascii, allowLossyConversion: true)
+                {
+                    let postLength:String = "\(postData.count)"
+                    urlRequest.setValue(postLength, forHTTPHeaderField: "Content-Length")
+                    urlRequest.httpBody = postData
+                }
+            }
+            
             urlRequest.url = URL(string: hostUrl)
-
             urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
         else if (request.contentType == ContentTypeRequest.json), request.parameters != nil
