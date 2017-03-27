@@ -37,10 +37,13 @@ extension URLRequest
             urlRequest.url = URL(string: hostUrl)
             urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
-        else if (request.contentType == ContentTypeRequest.json), request.parameters != nil
+        else if (request.contentType == ContentTypeRequest.json)
         {
-            let data = try? JSONSerialization.data(withJSONObject: request.parameters!, options: JSONSerialization.WritingOptions.init(rawValue: 0))
-            urlRequest.httpBody = data
+            if request.parameters != nil
+            {
+                let data = try? JSONSerialization.data(withJSONObject: request.parameters!, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+                urlRequest.httpBody = data
+            }
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         else if (request.contentType == ContentTypeRequest.multipart)
@@ -51,6 +54,15 @@ extension URLRequest
                 urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
             }
         }
+
+        if let headers = request.extraHeaders
+        {
+            for header in headers
+            {
+                urlRequest.setValue(header.value, forHTTPHeaderField: header.key)
+            }
+        }
+
         urlRequest.httpMethod = request.type.description
         return urlRequest
     }

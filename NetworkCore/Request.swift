@@ -41,4 +41,5 @@ public protocol Request : class
     var url: URL { get }
     var parameters:  Dictionary<String, Any>? { get }
     var isLog: Bool { get }
+    var extraHeaders: Dictionary<String, String>? { get }
 }
