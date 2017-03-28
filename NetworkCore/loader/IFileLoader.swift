@@ -1,6 +1,5 @@
 //
 //  Uploader.swift
-//  multibank_api_lib
 //
 //  Created by Nikita on 12.07.16.
 //  Copyright © 2016 Alexey Ivankov. All rights reserved.

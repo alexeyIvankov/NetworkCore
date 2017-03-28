@@ -1,6 +1,5 @@
 //
 //  ServerCoreProtocol.swift
-//  GeoTasks
 //
 //  Created by Ivankov Alexey on 10.11.15.
 //  Copyright © 2015 Ivankov Alexey. All rights reserved.

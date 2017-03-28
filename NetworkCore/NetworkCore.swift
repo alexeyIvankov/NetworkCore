@@ -11,24 +11,14 @@ import Foundation
 public class NetworkCore
 {
 	
-    private let mSession:URLSession
-    private let mExecutor: RequestExecutor
-    private let mLoader: FileLoader
-	
+    let session:URLSession
+    let executor: RequestExecutor
+    let loader: FileLoader
+
 	required public init(session:URLSession)
     {
-		mSession = session
-        mExecutor = RequestExecutor(session: mSession)
-        mLoader = FileLoader(session: mSession)
+		self.session = session
+        executor = RequestExecutor(session: session)
+        loader = FileLoader(session: session)
 	}
-    
-    public func executor() -> IRequestExecutor
-    {
-        return self.mExecutor
-    }
-    
-    public func loader() -> IFileLoader
-    {
-        return self.mLoader
-    }
 }
