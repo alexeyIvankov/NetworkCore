@@ -10,7 +10,6 @@
 		11C6B5581E8D0264006DA94F /* URLRequest+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C6B5571E8D0263006DA94F /* URLRequest+Request.swift */; };
 		FF14F41A1DE4927400FCECF4 /* NetworkCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FF14F4191DE4927400FCECF4 /* NetworkCore.podspec */; };
 		FF32AE271DDA18A3001608BB /* NetworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF32AE1D1DDA18A3001608BB /* NetworkCore.framework */; };
-		FF32AE2C1DDA18A3001608BB /* NetworkCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */; };
 		FF32AE2E1DDA18A3001608BB /* NetworkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF32AE201DDA18A3001608BB /* NetworkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF32AE431DDA1906001608BB /* Dictionary+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE381DDA1906001608BB /* Dictionary+Serialization.swift */; };
 		FF32AE451DDA1906001608BB /* IRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE3B1DDA1906001608BB /* IRequestExecutor.swift */; };
@@ -39,7 +38,6 @@
 		FF32AE201DDA18A3001608BB /* NetworkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCore.h; sourceTree = "<group>"; };
 		FF32AE211DDA18A3001608BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF32AE261DDA18A3001608BB /* NetworkCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCoreTests.swift; sourceTree = "<group>"; };
 		FF32AE2D1DDA18A3001608BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF32AE381DDA1906001608BB /* Dictionary+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Serialization.swift"; sourceTree = "<group>"; };
 		FF32AE3B1DDA1906001608BB /* IRequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRequestExecutor.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		FF32AE2A1DDA18A3001608BB /* NetworkCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */,
 				FF32AE2D1DDA18A3001608BB /* Info.plist */,
 			);
 			path = NetworkCoreTests;
@@ -268,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF32AE2C1DDA18A3001608BB /* NetworkCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
