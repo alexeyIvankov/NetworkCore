@@ -49,7 +49,7 @@ public class RequestExecutor: IRequestExecutor
                     }
                     else
                     {
-                        completion(nil, RequestError.requestError)
+                        completion(nil, NSError(domain: "serialization json failed", code: -1, userInfo: nil))
                     }
                 }
             }
