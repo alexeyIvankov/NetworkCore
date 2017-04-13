@@ -48,7 +48,7 @@ extension Dictionary
 		}
 		else
 		{
-			string = self.escaped(string: (object as AnyObject).description);
+			string = self.escaped(string: String(describing: object));
 		}
 		return string;
 	}
