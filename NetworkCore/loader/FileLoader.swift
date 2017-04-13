@@ -35,7 +35,7 @@ public class FileLoader: IFileLoader
                 }
                 else
                 {
-                    completion(["filePath": data! as AnyObject], nil)
+                    completion(["filePath": data! as Any], nil)
                 }
             }
 
