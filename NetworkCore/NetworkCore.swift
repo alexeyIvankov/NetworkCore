@@ -10,10 +10,9 @@ import Foundation
 
 public class NetworkCore
 {
-	
-    let session:URLSession
-    let executor: RequestExecutor
-    let loader: FileLoader
+    public let session:URLSession
+    public let executor: RequestExecutor
+    public let loader: FileLoader
 
 	required public init(session:URLSession)
     {
