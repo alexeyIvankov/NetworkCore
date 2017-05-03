@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 	s.tvos.deployment_target = "9.0"
 
 
-  s.source       = { :git => 'https://github.com/alexeyIvankov/NetworkCore.git', :branch => 'nikita_branch' }
+  s.source       = { :git => 'https://github.com/alexeyIvankov/NetworkCore.git', :branch => 'development' }
 
   s.source_files  = "NetworkCore/**/*.{swift, h}"
   s.xcconfig= { "HEADER_SEARCH_PATHS" => '$(PODS_ROOT)/NetworkCore' }
