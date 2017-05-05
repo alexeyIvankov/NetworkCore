@@ -21,9 +21,9 @@ public class RequestExecutor: IRequestExecutor
     {
         let urlRequest:URLRequest = URLRequest.create(request: command.request)
         var dataTask:URLSessionDataTask? = nil
-
+        
         dataTask = self.session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-
+            
             if error != nil
             {
                 completion(nil, error)
@@ -54,7 +54,7 @@ public class RequestExecutor: IRequestExecutor
                 }
             }
         })
-
+        
         dataTask?.resume()
         
         return dataTask
@@ -66,8 +66,8 @@ public class RequestExecutor: IRequestExecutor
         let task: URLSessionDataTask? = self.execute(command: command) { (data, error) in
             
             completionQueue.async(execute:
-            {
-                completion(data, error)
+                {
+                    completion(data, error)
             })
         }
         
@@ -75,5 +75,37 @@ public class RequestExecutor: IRequestExecutor
         
         return task
     }
-
+    
+    
+    public func execute(command: Command, completion: @escaping ResponseCommand) -> URLSessionDataTask?
+    {
+        let urlRequest:URLRequest = URLRequest.create(request: command.request)
+        var dataTask:URLSessionDataTask? = nil
+        
+        dataTask = self.session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+            
+            completion(data, response, error)
+            
+        })
+        
+        dataTask?.resume()
+        
+        return dataTask
+    }
+    
+    public func execute(command: Command, completion: @escaping ResponseCommand, completionQueue: DispatchQueue) -> URLSessionDataTask?
+    {
+        
+        let task: URLSessionDataTask? = self.execute(command: command) { (data, response, error) in
+            completionQueue.async(execute: {
+                
+                completion(data, response, error)
+                
+            })
+        }
+        
+        task?.resume()
+        
+        return task
+    }
 }
