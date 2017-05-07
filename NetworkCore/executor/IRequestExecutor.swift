@@ -8,10 +8,15 @@
 import Foundation
 
 public typealias CompletionCommand = (_ data: Array<Any>?, _ error:Error?)->Void;
+public typealias ResponseCommand = (Data?, URLResponse?, Error?)->Void;
 public typealias Command = (request:Request, parser:Parser?);
 
 public protocol IRequestExecutor : class
 {
     func execute(command:Command, completion:@escaping CompletionCommand) -> URLSessionDataTask?;
     func execute(command:Command, completion:@escaping CompletionCommand, completionQueue:DispatchQueue) -> URLSessionDataTask?;
+    
+    func execute(command:Command, completion:@escaping ResponseCommand) -> URLSessionDataTask?;
+    func execute(command:Command, completion:@escaping ResponseCommand, completionQueue:DispatchQueue) -> URLSessionDataTask?;
 }
+
