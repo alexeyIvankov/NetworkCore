@@ -10,11 +10,11 @@ import Foundation
 
 extension Data
 {
-    static func createUploadBody(data: Data, mimeType: String, fileName: String, boundary: String) -> Data
+    static func createUploadBody(data: Data, mimeType: String, fileParamName: String, fileName: String, boundary: String) -> Data
     {
         var body = Data()
         body.appendString("--\(boundary)\r\n")
-        body.appendString("Content-Disposition: form-data; name=\"file[file]\"; filename=\"\(fileName)\"\r\n")
+        body.appendString("Content-Disposition: form-data; name=\"\(fileParamName)\"; filename=\"\(fileName)\"\r\n")
         body.appendString("Content-Type: \(mimeType)\r\n\r\n")
         body.append(data)
         body.appendString("\r\n")
