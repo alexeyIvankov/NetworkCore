@@ -93,7 +93,7 @@ public class FileLoader: IFileLoader
                     }
                     else
                     {
-                        completion(nil,  NSError(domain: "serialization json failed", code: -1, userInfo: nil))
+                        completion(nil,   NSError(domain: "serialization json failed", code: -1, userInfo: nil))
                     }
                 }
             }
