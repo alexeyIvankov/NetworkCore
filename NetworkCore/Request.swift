@@ -21,7 +21,7 @@ public enum TypeRequest : Int
 
     var description: String
     {
-        return String(describing: self).capitalized
+        return String(describing: self).uppercased(with: nil)
     }
 }
 
