@@ -55,7 +55,7 @@ extension Dictionary
 	
 	private func escaped(string:String?) -> String?
 	{
-		return string?.addingPercentEscapes( using: String.Encoding.utf8)
+        return string?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 	}
     
     mutating func update(other:Dictionary) {
