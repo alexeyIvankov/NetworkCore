@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BEBB5C0A18911B63B2F6275F758865961605BE3A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BEBB5C0A18911B63B2F6275F758865961605BE3A" : 9223372036854775807,
+    "7D0B5FBF868F85591AE93D7EF26ED3EB068D5697" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B4685DA6-632A-46E5-90E5-7428A8DE4394",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BEBB5C0A18911B63B2F6275F758865961605BE3A" : "networkcore\/",
+    "7D0B5FBF868F85591AE93D7EF26ED3EB068D5697" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NetworkCore",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "NetworkCore.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.rusoft.pro:hb\/multibank_api_lib_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7D0B5FBF868F85591AE93D7EF26ED3EB068D5697"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:alexeyIvankov\/NetworkCore.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BEBB5C0A18911B63B2F6275F758865961605BE3A"
+    }
+  ]
+}

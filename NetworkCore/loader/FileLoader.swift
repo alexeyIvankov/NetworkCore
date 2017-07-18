@@ -35,7 +35,7 @@ public class FileLoader: IFileLoader
                 }
                 else
                 {
-                    completion(["filePath": data! as AnyObject], nil)
+                    completion(["filePath": data! as Any], nil)
                 }
             }
 
@@ -93,7 +93,7 @@ public class FileLoader: IFileLoader
                     }
                     else
                     {
-                        completion(nil, RequestError(rawValue: 0))// Error(domain: "serialization json failed", code: 0, userInfo: nil))
+                        completion(nil,   NSError(domain: "serialization json failed", code: -1, userInfo: nil))
                     }
                 }
             }

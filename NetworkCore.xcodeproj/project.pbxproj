@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11C6B5581E8D0264006DA94F /* URLRequest+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C6B5571E8D0263006DA94F /* URLRequest+Request.swift */; };
 		FF14F41A1DE4927400FCECF4 /* NetworkCore.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FF14F4191DE4927400FCECF4 /* NetworkCore.podspec */; };
 		FF32AE271DDA18A3001608BB /* NetworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF32AE1D1DDA18A3001608BB /* NetworkCore.framework */; };
-		FF32AE2C1DDA18A3001608BB /* NetworkCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */; };
 		FF32AE2E1DDA18A3001608BB /* NetworkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF32AE201DDA18A3001608BB /* NetworkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF32AE431DDA1906001608BB /* Dictionary+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE381DDA1906001608BB /* Dictionary+Serialization.swift */; };
-		FF32AE441DDA1906001608BB /* NSURLRequest+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE391DDA1906001608BB /* NSURLRequest+Request.swift */; };
 		FF32AE451DDA1906001608BB /* IRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE3B1DDA1906001608BB /* IRequestExecutor.swift */; };
 		FF32AE461DDA1906001608BB /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE3C1DDA1906001608BB /* RequestExecutor.swift */; };
 		FF32AE471DDA1906001608BB /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32AE3E1DDA1906001608BB /* FileLoader.swift */; };
@@ -33,15 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11C6B5571E8D0263006DA94F /* URLRequest+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Request.swift"; sourceTree = "<group>"; };
 		FF14F4191DE4927400FCECF4 /* NetworkCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkCore.podspec; sourceTree = "<group>"; };
 		FF32AE1D1DDA18A3001608BB /* NetworkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF32AE201DDA18A3001608BB /* NetworkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCore.h; sourceTree = "<group>"; };
 		FF32AE211DDA18A3001608BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF32AE261DDA18A3001608BB /* NetworkCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCoreTests.swift; sourceTree = "<group>"; };
 		FF32AE2D1DDA18A3001608BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF32AE381DDA1906001608BB /* Dictionary+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Serialization.swift"; sourceTree = "<group>"; };
-		FF32AE391DDA1906001608BB /* NSURLRequest+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Request.swift"; sourceTree = "<group>"; };
 		FF32AE3B1DDA1906001608BB /* IRequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRequestExecutor.swift; sourceTree = "<group>"; };
 		FF32AE3C1DDA1906001608BB /* RequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		FF32AE3E1DDA1906001608BB /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		FF32AE2A1DDA18A3001608BB /* NetworkCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF32AE2B1DDA18A3001608BB /* NetworkCoreTests.swift */,
 				FF32AE2D1DDA18A3001608BB /* Info.plist */,
 			);
 			path = NetworkCoreTests;
@@ -116,8 +113,8 @@
 		FF32AE371DDA1906001608BB /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				11C6B5571E8D0263006DA94F /* URLRequest+Request.swift */,
 				FF32AE381DDA1906001608BB /* Dictionary+Serialization.swift */,
-				FF32AE391DDA1906001608BB /* NSURLRequest+Request.swift */,
 			);
 			path = categories;
 			sourceTree = "<group>";
@@ -197,7 +194,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Alexey Ivankov";
 				TargetAttributes = {
 					FF32AE1C1DDA18A3001608BB = {
@@ -255,11 +252,11 @@
 				FF32AE481DDA1906001608BB /* IFileLoader.swift in Sources */,
 				FF32AE461DDA1906001608BB /* RequestExecutor.swift in Sources */,
 				FF32AE451DDA1906001608BB /* IRequestExecutor.swift in Sources */,
-				FF32AE441DDA1906001608BB /* NSURLRequest+Request.swift in Sources */,
 				FF32AE4A1DDA1906001608BB /* Parser.swift in Sources */,
 				FF32AE431DDA1906001608BB /* Dictionary+Serialization.swift in Sources */,
 				FF32AE471DDA1906001608BB /* FileLoader.swift in Sources */,
 				FF32AE4B1DDA1906001608BB /* Request.swift in Sources */,
+				11C6B5581E8D0264006DA94F /* URLRequest+Request.swift in Sources */,
 				FF32AE491DDA1906001608BB /* NetworkCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF32AE2C1DDA18A3001608BB /* NetworkCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +297,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -354,6 +351,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

@@ -16,7 +16,7 @@ extension Dictionary
 		
 		for (key, value) in self
 		{
-			if let object = value as AnyObject?
+			if let object = value as Any?
 			{
 				let stringValue:String? = self.stringFrom(object: object)
 				if (stringValue != nil)
@@ -28,16 +28,17 @@ extension Dictionary
 		return pairs.joined(separator: "&")
 	}
 	
-	private func stringFrom(object:AnyObject) -> String?
+	private func stringFrom(object:Any) -> String?
 	{
 		var string:String?;
 		
-		if (object is Dictionary) || (object is NSArray)
+		if (object is Dictionary) || (object is Array<String>)
 		{
 			do
 			{
-				let jsonData = try JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions.init(rawValue: 0));
-				let jsonString = String(describing: NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue))
+				let jsonData = try JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+                
+				let jsonString = String(bytes: jsonData, encoding: .utf8)
 				
 				string = self.escaped(string: jsonString)
 			}
@@ -47,14 +48,14 @@ extension Dictionary
 		}
 		else
 		{
-			string = self.escaped(string: object.description);
+			string = self.escaped(string: String(describing: object));
 		}
 		return string;
 	}
 	
 	private func escaped(string:String?) -> String?
 	{
-		return string?.addingPercentEscapes( using: String.Encoding.utf8)
+        return string?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 	}
     
     mutating func update(other:Dictionary) {
